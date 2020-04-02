@@ -5,7 +5,7 @@ Created on Mon Feb  3 11:00:41 2020
 @author: Vahid
 """
 
-from LIPRO1 import *
+from LIPRO import *
 
 profile1 = readtext('text files/Bishop','profile')
 path = polygon(4,50,90)
