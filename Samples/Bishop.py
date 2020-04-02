@@ -7,7 +7,7 @@ Created on Mon Feb  3 11:00:41 2020
 
 from LIPRO import *
 
-profile1 = readtext('text files/Bishop','profile')
+profile1 = Load('text files/Bishop','profile')
 path = polygon(4,50,90)
 path = HTM3D(np.insert(path,2,0,axis=1),0,90,0,-4,0,0)
 part1 = sweep(profile1,profile1,path)
