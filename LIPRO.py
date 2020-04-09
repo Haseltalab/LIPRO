@@ -341,7 +341,7 @@ def HTM2D(A,alpha,x0,y0):
     poly = sa.translate(poly,x0,y0)
     return list(poly.exterior.coords)
 ### apply 3D transformation on an object
-def HTM3D(obj,thx=0,thy=0,thz=0,dx=0,dy=0,dz=0):
+def Transform(obj,thx=0,thy=0,thz=0,dx=0,dy=0,dz=0):
     thx = radians(thx); thy = radians(thy); thz = radians(thz)
     col1 = (cos(thy)*cos(thz),-cos(thy)*sin(thz),sin(thy),dx)
     col2 = (sin(thx)*sin(thy)*cos(thz)+cos(thx)*sin(thz),-sin(thx)*sin(thy)*sin(thz)+cos(thx)*cos(thz),-sin(thx)*cos(thy),dy)
@@ -478,7 +478,7 @@ def mapto3D11(polys,path,typ='normal'):
     plys = []
     thx,thy,thz = angles2(np.array(path[1])-np.array(path[0]))
     dx,dy,dz = np.array(path[0])
-    plys.append(HTM3D(polys[0],thx,thy,thz,dx,dy,dz))
+    plys.append(Transform(polys[0],thx,thy,thz,dx,dy,dz))
     #agl = []
     for i in range(len(path)-1):
         v = np.array(path[i])-np.array(path[i-1])
@@ -487,7 +487,7 @@ def mapto3D11(polys,path,typ='normal'):
             thx,thy,thz = 0,0,0
         if typ =='normal': dx,dy,dz = np.array(path[i+1])
         else: dx,dy,dz = 0,0,0
-        b = HTM3D(polys[i],thx,thy,thz,dx,dy,dz)
+        b = Transform(polys[i],thx,thy,thz,dx,dy,dz)
         if isinstance(b,list): b = np.array(b)
         plys.append(b)
     return plys
