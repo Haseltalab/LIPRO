@@ -579,8 +579,10 @@ def sweep(poly1,poly2,path,TwistAngle=0,scale1=None):
     resolution = 3
     if scale1 == None: scale1 = [1,1]
     poly1 = np.round(np.array(poly1),5); poly2 = np.round(np.array(poly2),5)
-    if poly1.tolist() == poly2.tolist() and (path[0] == path[-1]).all() and (np.count_nonzero(poly1,axis=1) == 0).any(): #and (np.array(poly1)[-2] == 0).any()):
-        poly = opt_line(poly1[:-1],resolution)
+    if poly1.tolist() == poly2.tolist() and (path[0] == path[-1]).all():
+        if np.count_nonzero(np.count_nonzero(poly1,axis=1) == 0) > 2:
+            poly = opt_line(poly1[:-1],resolution)
+        else: poly = opt_line(poly1,resolution)
         lsts = np.array([poly]*len(path))
         lsts1 = np.insert(np.array(lsts), 2, 0, axis=2)
         curves2,path1 = mapto3D(lsts1,path,'rot'); path2 = path1
