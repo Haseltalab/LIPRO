@@ -1,6 +1,14 @@
 # LIPRO
 > This is the documentation of LIPRO which is written in Python. Examples provided here are self-contained and presented for better understanding of users.
 
+### Required libraries
+
+[OpenCV-python](https://pypi.org/project/opencv-python "LCO")\
+[Numpy](https://numpy.org/doc "LCO")\
+[Shapely](https://shapely.readthedocs.io/en/stable/manual.html "LCO")\
+[Numpy-stl](https://pypi.org/project/numpy-stl/ "LCO")\
+[Scipy](https://www.scipy.org/docs.html "LCO")
+
 Since LIPRO is written in Python, it uses the basic data structure list to present vectors and directions. 
 ```sh
 v1 = [0,0,1]
