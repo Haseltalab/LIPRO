@@ -1,7 +1,7 @@
 # LIPRO
-> This is the documentation of the LIPRO scripting language which is written in Python programming language. Examples provided here are self-contained and presented for better understanding of users.
+> This is the documentation of LIPRO which is written in Python. Examples provided here are self-contained and presented for better understanding of users.
 
-Since LIPRO is written in Python, it uses list to present vectors and directions. 
+Since LIPRO is written in Python, it uses the basic data structure list to present vectors and directions. 
 ```sh
 v1 = [0,0,1]
 
@@ -12,14 +12,14 @@ In order to have 2D polygons, function polygon(radius,Num of edges, starting ang
 ```sh
 poly1 = polygon(10,4,0)
 ```
-Having a guide curve and two closed 2D polygons (start and end of the guide curve), we can generate a 3D model and present it as STL or OBJ.
+Having a guide curve and two closed 2D polygons (start and end of the guide curve), we can generate a 3D model and present it as STL or OBJ files.
 
 ```sh
 vertices, faces = sweep(poly1, poly2, guide curve, twist angle=0, scale=None)
 savestl('name of the part', vertices, faces)
 ```
 
-Also there is a transformation function to move and rotate each part in space based on cartesian coordinates. 
+There is also a transformation function to move and rotate each part in space based on cartesian coordinates. 
 ```sh
 part = Transform(object,thx=0,thy=0,thz=0,dx=0,dy=0,dz=0)
 ```
@@ -45,7 +45,7 @@ part1 = sweep(G1,G1,S1)
 
 ### Bishop
 
-Some profiles are too complicated to be designed by combination of polygons. Therefore, they can be loaded and used in sweep function.
+Some profiles are too complicated to be designed by combination of polygons. Therefore, they can be loaded and used with sweep function.
 
 ```python
 from LIPRO import *
@@ -87,7 +87,7 @@ part2_ver = Transform(part2[0],0,0,0,0,0,3)
 
 ### A path with multiple profiles
 
-If along the guide curve there must be located more than two profiles, we can decompose the part into multiple subparts and use the sweep function to make each subpart. Afterwards, these subparts can be join together to form the original part.
+If along the guide curve there must be located more than two profiles, we can decompose the part into multiple subparts and use the sweep function to make each subpart. Afterwards, these subparts can be joined together to form the original part.
 The number of subparts can be obtained from,
 
 ```sh
