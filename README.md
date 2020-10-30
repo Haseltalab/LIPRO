@@ -142,4 +142,4 @@ All the parts are stored into a list called **parts** and a list of ones or mine
 <img src="https://user-images.githubusercontent.com/53440292/97699073-9cb0be00-1aba-11eb-95e4-fd5a30cc22af.jpeg" width="40%">
 <img src="https://user-images.githubusercontent.com/53440292/97699114-aa664380-1aba-11eb-9b34-1e9278e5009d.jpeg" width="40%">
 
-### All 
+### 
