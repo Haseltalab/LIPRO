@@ -139,5 +139,4 @@ parts.append(part44[part4[1]]);b_list.append(1)
 #savestl('m4',part44,part4[1])
 ```
 
-<img src="https://user-images.githubusercontent.com/53440292/97699073-9cb0be00-1aba-11eb-95e4-fd5a30cc22af.jpeg" width="40%">
-<img src="https://user-images.githubusercontent.com/53440292/97699114-aa664380-1aba-11eb-9b34-1e9278e5009d.jpeg" width="40%">
+<img src="https://user-images.githubusercontent.com/53440292/97699073-9cb0be00-1aba-11eb-95e4-fd5a30cc22af.jpeg" width="40%">                <img src="https://user-images.githubusercontent.com/53440292/97699114-aa664380-1aba-11eb-9b34-1e9278e5009d.jpeg" width="40%">
