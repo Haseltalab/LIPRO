@@ -332,7 +332,34 @@ class Slice:
             return list(lines[0].exterior.coords)
         else:
             return list(self.order(L))
-
+### combine the subparts in 2D
+def combine(plys,boolean_list):
+    if plys:
+        base = 0
+        for a in plys:
+            if a.area!= 0:
+                base = a
+                break
+        if not base.is_valid and base != 0: base = base.buffer(0)
+        for j in range(1,len(plys)):
+            if plys[j].area > 0.5:
+                if boolean_list[j] == 1:
+                    base = base.union(plys[j])
+                elif boolean_list[j] == -1:
+                    base = base.difference(plys[j])
+        try:
+            bs = [a for a in base if a.area>2]
+        except: bs = [base]
+        return bs
+    else: return []
+### Gives cross_section of combines subparts
+def xsect(parts,b_list,z):
+    slices1 = [Slice(parts[i],'xy') for i in range(len(parts))]
+    sec1 = [b.cross_section(z) for b in slices1]
+    plys1 = [sg.Polygon(a).buffer(0) for a in sec1]
+    base1 = combine(plys1,b_list)
+    lst1 = [list(a.exterior.coords) for a in base1]
+    return lst1
 
 ### 2D transformation
 def HTM2D(A,alpha,x0,y0):
