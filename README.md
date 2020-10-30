@@ -108,18 +108,36 @@ For instance in the following example there are three profiles as,
 ```python
 from LIPRO import *
 
-G1 = polygon(6,30)
-G2 = polygon(3,3)
-P1 = Transform(Load('t1')[:,[2,1,0]],-90,0,0,0,0,0)
+d = 11
+parts = []; b_list = []
+P1 = Transform(np.insert(np.array(polygon(100,100)[:int(100/2)]),2,0,1),90,180,0,100,0,0)
+P1 = P1[:int(len(P1)/4)+1]
+G1 = polygon(d,3)
+G2 = polygon(d,4)
 part1 = sweep(G1,G2,P1)
+parts.append(part1[0][part1[1]]);b_list.append(1)
+#savestl('m1',part1[0],part1[1])
 
-G3 = polygon(3,10)
-part2 = sweep(G2,G3,P1[:-3])
-part22 = Transform(part2[0],0,0,0,0,P1[-1][1],P1[-1][2])
+G3 = polygon(d,5)
+part2 = sweep(G2,G3,P1)
+part22 = Transform(part2[0],0,43.2,0,P1[-1][0],0,P1[-1][2])
+parts.append(part22[part2[1]]);b_list.append(1)
+#savestl('m2',part22,part2[1])
 
-#savestl('h1',part1[0],part1[1])
-#savestl('h2',part22,part2[1])
+G4 = polygon(d,6)
+part3 = sweep(G3,G4,P1)
+pp1 = Transform(P1,0,43.2,0,P1[-1][0],0,P1[-1][2])
+part33 = Transform(part3[0],0,86.4,0,pp1[-1][0],0,pp1[-1][2])
+parts.append(part33[part3[1]]);b_list.append(1)
+#savestl('m3',part33,part3[1])
+
+G5 = polygon(d,7)
+part4 = sweep(G4,G5,P1)
+pp2 = Transform(P1,0,86.4,0,pp1[-1][0],0,pp1[-1][2])
+part44 = Transform(part4[0],0,129.6,0,pp2[-1][0],0,pp2[-1][2])
+parts.append(part44[part4[1]]);b_list.append(1)
+#savestl('m4',part44,part4[1])
 ```
 
-<img src="https://user-images.githubusercontent.com/53440292/96191009-e55d6880-0f4b-11eb-9382-36724de258c0.JPG" width="40%">
-<img src="https://user-images.githubusercontent.com/53440292/96191042-fa39fc00-0f4b-11eb-92bc-d0cf5abc46f6.JPG" width="40%">
+<img src="https://user-images.githubusercontent.com/53440292/97699073-9cb0be00-1aba-11eb-95e4-fd5a30cc22af.jpeg" width="40%">
+<img src="https://user-images.githubusercontent.com/53440292/97699114-aa664380-1aba-11eb-9b34-1e9278e5009d.jpeg" width="40%">
