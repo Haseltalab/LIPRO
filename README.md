@@ -139,8 +139,23 @@ parts.append(part44[part4[1]]);b_list.append(1)
 #savestl('m4',part44,part4[1])
 ```
 
-<img src="https://user-images.githubusercontent.com/53440292/97699073-9cb0be00-1aba-11eb-95e4-fd5a30cc22af.jpeg" align = "left" width="40%">
-<img src="https://user-images.githubusercontent.com/53440292/97699114-aa664380-1aba-11eb-9b34-1e9278e5009d.jpeg" align = "right" width="40%">
+<img src="https://user-images.githubusercontent.com/53440292/97699073-9cb0be00-1aba-11eb-95e4-fd5a30cc22af.jpeg" width="40%">
+<img src="https://user-images.githubusercontent.com/53440292/97699114-aa664380-1aba-11eb-9b34-1e9278e5009d.jpeg" width="40%">
 
-### 
-All the parts are stored into a list called **parts** and a list of ones or mines ones defines the boolean operation of each subpart (called **b_list**).
+All the parts are stored into a list called **parts**, and a list of ones and mines ones defines the boolean operation of each subpart (**b_list**). Having these list of data along with the specified elevation we can join the subparts at each elevation using the following script. 
+
+```python
+cross_section = xsect(parts,b_list,90)
+```
+Plotting this cross section is possible using function below.
+
+```python
+def plot(lst):
+    import matplotlib.pyplot as plt
+    for i in range(len(lst)):
+        ff = np.array(lst[i])
+        plt.plot(ff[:,0],ff[:,1])
+```
+The result of this plot is shown as, 
+
+<img src="https://user-images.githubusercontent.com/53440292/97703279-6b87bc00-1ac1-11eb-8cb3-b3b9b5d8cfce.png" width="50%">
