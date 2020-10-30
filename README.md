@@ -101,7 +101,7 @@ The number of subparts can be obtained from,
 ```sh
 N = Number of profiles - 1
 ```
-For instance in the following example there are three profiles as, 
+For instance in the following example there are four subparts and five profiles as, 
 
 <img src="https://user-images.githubusercontent.com/53440292/97698472-9b32c600-1ab9-11eb-9523-9b28b2b7ce8e.png" width="50%">
 
