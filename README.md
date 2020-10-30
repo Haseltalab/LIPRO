@@ -158,4 +158,4 @@ def plot(lst):
 ```
 The result of this plot is shown as, 
 
-<img src="https://user-images.githubusercontent.com/53440292/97709404-557ef900-1acb-11eb-91b2-1ff6700c0f8f.jpg" align="left" width="48%"> <img src="https://user-images.githubusercontent.com/53440292/97709299-2799b480-1acb-11eb-83b7-1e656033997b.png" align="right" width="48%">
+<img src="https://user-images.githubusercontent.com/53440292/97709404-557ef900-1acb-11eb-91b2-1ff6700c0f8f.jpg" width="60%"> <img src="https://user-images.githubusercontent.com/53440292/97709299-2799b480-1acb-11eb-83b7-1e656033997b.png" width="30%">
