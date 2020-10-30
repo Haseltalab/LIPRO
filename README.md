@@ -103,7 +103,7 @@ N = Number of profiles - 1
 ```
 For instance in the following example there are three profiles as, 
 
-<img src="https://user-images.githubusercontent.com/53440292/96190762-6a944d80-0f4b-11eb-8b64-0fee003f50e2.png" width="50%">
+<img src="https://user-images.githubusercontent.com/53440292/97698472-9b32c600-1ab9-11eb-9523-9b28b2b7ce8e.png" width="50%">
 
 ```python
 from LIPRO import *
