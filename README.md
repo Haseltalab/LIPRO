@@ -42,9 +42,9 @@ To generate a cube, we only need to move a single square profile along a path as
 ```python
 from LIPRO import *
 
-G1 = polygon(10,4)
-S1 = [[0,0,0],[0,0,10*np.sqrt(2)]]
-part1 = sweep(G1,G1,S1)
+P1 = polygon(10,4)
+G1 = [[0,0,0],[0,0,10*np.sqrt(2)]]
+part1 = sweep(P1,P1,G1)
 
 #savestl('cube',part1[0],part1[1])
 ```
@@ -77,14 +77,14 @@ from LIPRO import *
 
 G1 = np.insert(polygon(1,50),2,0,axis=1)
 G1 = Transform(G1,90,0,0,0,0,0)
-S1 = np.array(polygon(1,50)) + [-1,0]
-part1 = sweep(S1,S1,G1)
+P1 = np.array(polygon(1,50)) + [-1,0]
+part1 = sweep(P1,P1,G1)
 part1_ver = Transform(part1[0],0,0,0,0,0,1)
 
 G2 = np.insert(polygon(1,50),2,0,axis=1)
 G2 = Transform(G2,0,90,90,0,0,0)
-S2 = np.array(polygon(1,50,90)) + [0,1]
-part2 = sweep(S2,S2,G2)
+P2 = np.array(polygon(1,50,90)) + [0,1]
+part2 = sweep(P2,P2,G2)
 part2_ver = Transform(part2[0],0,0,0,0,0,3)
 
 #savestl('ring',part1_ver,part1[1])
@@ -110,31 +110,31 @@ from LIPRO import *
 
 d = 11
 parts = []; b_list = []
-P1 = Transform(np.insert(np.array(polygon(100,100)[:int(100/2)]),2,0,1),90,180,0,100,0,0)
-P1 = P1[:int(len(P1)/4)+1]
-G1 = polygon(d,3)
-G2 = polygon(d,4)
-part1 = sweep(G1,G2,P1)
+G = Transform(np.insert(np.array(polygon(100,100)[:int(100/2)]),2,0,1),90,180,0,100,0,0)
+G = G[:int(len(G)/4)+1]
+P1 = polygon(d,3)
+P2 = polygon(d,4)
+part1 = sweep(P1,P2,G)
 parts.append(part1[0][part1[1]]);b_list.append(1)
 #savestl('m1',part1[0],part1[1])
 
-G3 = polygon(d,5)
-part2 = sweep(G2,G3,P1)
-part22 = Transform(part2[0],0,43.2,0,P1[-1][0],0,P1[-1][2])
+P3 = polygon(d,5)
+part2 = sweep(P2,P3,G)
+part22 = Transform(part2[0],0,43.2,0,G[-1][0],0,G[-1][2])
 parts.append(part22[part2[1]]);b_list.append(1)
 #savestl('m2',part22,part2[1])
 
-G4 = polygon(d,6)
-part3 = sweep(G3,G4,P1)
-pp1 = Transform(P1,0,43.2,0,P1[-1][0],0,P1[-1][2])
-part33 = Transform(part3[0],0,86.4,0,pp1[-1][0],0,pp1[-1][2])
+P4 = polygon(d,6)
+part3 = sweep(P3,P4,G)
+G1 = Transform(G,0,43.2,0,G[-1][0],0,G[-1][2])
+part33 = Transform(part3[0],0,86.4,0,G1[-1][0],0,G1[-1][2])
 parts.append(part33[part3[1]]);b_list.append(1)
 #savestl('m3',part33,part3[1])
 
-G5 = polygon(d,7)
-part4 = sweep(G4,G5,P1)
-pp2 = Transform(P1,0,86.4,0,pp1[-1][0],0,pp1[-1][2])
-part44 = Transform(part4[0],0,129.6,0,pp2[-1][0],0,pp2[-1][2])
+P5 = polygon(d,7)
+part4 = sweep(P4,P5,G)
+G2 = Transform(G,0,86.4,0,G1[-1][0],0,G1[-1][2])
+part44 = Transform(part4[0],0,129.6,0,G2[-1][0],0,G2[-1][2])
 parts.append(part44[part4[1]]);b_list.append(1)
 #savestl('m4',part44,part4[1])
 ```
