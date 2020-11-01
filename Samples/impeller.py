@@ -9,7 +9,6 @@ from LIPRO import *
 boolean_list = []; parts = []
 
 profile1 = Load('txt/turb1','profile')
-#profile = np.c_[profile[:,0]+0.5,profile[:,1]]
 path = polygon(4,50)
 path = np.round(np.array(Transform(np.insert(path,2,0,axis=1),-90,0,180,0,0,0)),decimals=8)
 part1 = sweep(profile1,profile1,path,0,0.5)
@@ -17,8 +16,7 @@ part11 = np.array(Transform(part1[0],90,0,0,0,0,0))
 parts.append(part11[part1[1]]); boolean_list.append(1)
 #savestl('prt1',part11,part1[1])
 path = Load('txt/path2','path')
-profile2_1 = Load('txt/profile2_1','profile')
-profile2_2 = Load('txt/profile2_2','profile')
+profile2_1 = Load('txt/profile2_1','profile'); profile2_2 = Load('txt/profile2_2','profile')
 part2 = sweep(profile2_1,profile2_2,path,-50)
 part22 = np.array(Transform(part2[0],0,270,0,34.8,0,10.5))
 for i in range(12):
@@ -29,7 +27,3 @@ profile1 = polygon(4.5,100); path = np.array([[0,0,0],[0,0,40.5]])
 part3 = sweep(profile1,profile1,path)
 parts.append(part3[0][part3[1]]); boolean_list.append(-1)
 #savestl('prt3',part3[0],part3[1])
-
-
-
-    
