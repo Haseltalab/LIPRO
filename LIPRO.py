@@ -826,7 +826,7 @@ def Load(filename, type1 = 'path'):
     for a in data:
         a = a.split(',')
         if type1 == 'path':
-            path.append([float(a[1]),float(a[3]),float(a[2])])
+            path.append([float(a[1]),float(a[2]),float(a[3])])
         else:
             path.append([float(a[1]),float(a[2])])
     f.close()
