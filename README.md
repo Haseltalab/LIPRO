@@ -120,21 +120,21 @@ parts.append(part1[0][part1[1]]);b_list.append(1)
 
 P3 = polygon(d,5)
 part2 = sweep(P2,P3,G)
-part22 = Transform(part2[0],0,43.2,0,G[-1][0],0,G[-1][2])
+part22 = Transform(part2[0],0,43.2,0,G[-1][0]-0.2,0,G[-1][2])
 parts.append(part22[part2[1]]);b_list.append(1)
 #savestl('m2',part22,part2[1])
 
 P4 = polygon(d,6)
 part3 = sweep(P3,P4,G)
 G1 = Transform(G,0,43.2,0,G[-1][0],0,G[-1][2])
-part33 = Transform(part3[0],0,86.4,0,G1[-1][0],0,G1[-1][2])
+part33 = Transform(part3[0],0,86.4,0,G1[-1][0]-0.3,0,G1[-1][2])
 parts.append(part33[part3[1]]);b_list.append(1)
 #savestl('m3',part33,part3[1])
 
 P5 = polygon(d,7)
 part4 = sweep(P4,P5,G)
 G2 = Transform(G,0,86.4,0,G1[-1][0],0,G1[-1][2])
-part44 = Transform(part4[0],0,129.6,0,G2[-1][0],0,G2[-1][2])
+part44 = Transform(part4[0],0,129.6,0,G2[-1][0]-0.3,0,G2[-1][2])
 parts.append(part44[part4[1]]);b_list.append(1)
 #savestl('m4',part44,part4[1])
 ```
@@ -155,7 +155,20 @@ def plot(lst):
     for i in range(len(lst)):
         ff = np.array(lst[i])
         plt.plot(ff[:,0],ff[:,1])
+        #plt.axes().set_aspect('equal')  ## uncomment this if you need equal aspect ratio
 ```
 The result of this plot is shown as, 
 
 <img src="https://user-images.githubusercontent.com/53440292/97710063-4ea4b600-1acc-11eb-99f2-88eaa6278690.jpg" width="60%"> <img src="https://user-images.githubusercontent.com/53440292/97709299-2799b480-1acb-11eb-83b7-1e656033997b.png" width="30%">
+
+
+Also using the following lines, multiple cross_sections of this part can be plotted in a single window.
+
+```python
+for i in range(0,102,10):
+    cr = xsect(parts,b_list,i+0.1)
+    plot(cr)
+```
+
+<img src="https://user-images.githubusercontent.com/53440292/97894387-7ea9be80-1d43-11eb-9c8d-7295ac5dfdf8.png" width = "80%">
+
